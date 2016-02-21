@@ -1,7 +1,5 @@
 package com.simon.domain;
 
-import java.util.Enumeration;
-
 /**
  * Created by Simon on 2/21/16.
  */
@@ -21,5 +19,17 @@ public class Rental {
 
     public int getDaysRented() {
         return this._daysRented;
+    }
+
+    public  double getCharge(){
+        return  _movie.getCharge(_daysRented);
+    }
+
+    /**
+     * calculate frenquete renter point
+     * @return int
+     */
+    public int getFrenquentRenterPoints() {
+       return _movie.getFrenquentRenterPoints(_daysRented);
     }
 }
