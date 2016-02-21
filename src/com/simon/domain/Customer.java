@@ -31,7 +31,8 @@ public class Customer {
             double thisAmount = 0;
 
             Rental rental = (Rental) rentals.nextElement();
-            frenquentRenterPoints = getFrenquentRenterPoints(frenquentRenterPoints, rental);
+            frenquentRenterPoints = rental.getFrenquentRenterPoints();
+
             result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.amountFor()) + "\n";
             totalAmount += rental.amountFor();
         }
@@ -41,19 +42,6 @@ public class Customer {
         return result;
     }
 
-    /**
-     * calculate frenquete renter point 
-     * @param frenquentRenterPoints
-     * @param rental
-     * @return
-     */
-    public int getFrenquentRenterPoints(int frenquentRenterPoints, Rental rental) {
-        frenquentRenterPoints++;
-        if (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE && rental.getDaysRented() > 1) {
-            frenquentRenterPoints++;
-        }
-        return frenquentRenterPoints;
-    }
 
 
 }

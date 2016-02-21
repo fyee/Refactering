@@ -1,7 +1,5 @@
 package com.simon.domain;
 
-import java.util.Enumeration;
-
 /**
  * Created by Simon on 2/21/16.
  */
@@ -43,5 +41,17 @@ public class Rental {
                 break;
         }
         return  thisAmount;
+    }
+
+
+    /**
+     * calculate frenquete renter point
+     * @return int
+     */
+    public int getFrenquentRenterPoints() {
+        if (this.getMovie().getPriceCode() == Movie.NEW_RELEASE && this.getDaysRented() > 1) {
+            return 2;
+        }
+        return 1;
     }
 }

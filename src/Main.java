@@ -10,6 +10,7 @@ public class Main {
 
         customer.addRental(new Rental(movie, 5));
         customer.addRental(new Rental(movie, 3));
+
         System.out.println(customer.statement());
 
     }
