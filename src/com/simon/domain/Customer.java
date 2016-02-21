@@ -28,20 +28,20 @@ public class Customer {
         Enumeration rentals = this._rentals.elements();
         while (rentals.hasMoreElements()) {
             Rental rental = (Rental) rentals.nextElement();
-            result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.amountFor()) + "\n";
+            result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getCharge()) + "\n";
         }
 
-        result += "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
+        result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
         result += "You earned " + String.valueOf(getFrenquentRenterPoints()) + " frenquent renter points";
         return result;
     }
 
-    private double getTotalAmount() {
+    private double getTotalCharge() {
         double totalAmount = 0;
         Enumeration rentals = this._rentals.elements();
         while (rentals.hasMoreElements()) {
             Rental rental = (Rental) rentals.nextElement();
-            totalAmount += rental.amountFor();
+            totalAmount += rental.getCharge();
 
         }
         return totalAmount;
